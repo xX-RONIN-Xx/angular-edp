@@ -1,7 +1,18 @@
 img{
-    width: 50%;
+    width: 80%;
 }
 .clearance{
     border: green solid 2px;
     background-color: moccasin;
+}
+#quantity{
+    max-width: 45px;
+}
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+input{
+    text-align: center;
 }

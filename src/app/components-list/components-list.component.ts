@@ -15,6 +15,7 @@ export class ComponentsListComponent implements OnInit {
     "stock": 0,
     "image": "assets/img/2n3055.jpeg",
     "clearance":false,
+    "quantity":0,
   },
   {
     "name": "Ne555",
@@ -23,6 +24,7 @@ export class ComponentsListComponent implements OnInit {
     "stock": 20,
     "image": "assets/img/ne555.jpeg",
     "clearance":true,
+    "quantity":0,
   },
   {
     "name": "Capacitor",
@@ -31,6 +33,7 @@ export class ComponentsListComponent implements OnInit {
     "stock": 50,
     "image": "assets/img/capacitor_25x4700uf.jpeg",
     "clearance":false,
+    "quantity":0,
   },
   {
     "name": "Resistencia de precisión",
@@ -39,6 +42,7 @@ export class ComponentsListComponent implements OnInit {
     "stock": 500,
     "image": "assets/img/RP2.7_3w.jpeg",
     "clearance":false,
+    "quantity":0,
   },
   {
     "name": "Pic 18f4550",
@@ -47,6 +51,7 @@ export class ComponentsListComponent implements OnInit {
     "stock": 0,
     "image": "assets/img/pic18f4550.jpeg",
     "clearance":false,
+    "quantity":0,
   },
   {
     "name": "Diodo RGB",
@@ -55,6 +60,7 @@ export class ComponentsListComponent implements OnInit {
     "stock": 200,
     "image": "assets/img/diodorgb.jpeg",
     "clearance":false,
+    "quantity":0,
   },
   {
     "name": "Zener 13v",
@@ -63,11 +69,31 @@ export class ComponentsListComponent implements OnInit {
     "stock": 45,
     "image": "assets/img/zener13v.jpeg",
     "clearance":false,
+    "quantity":0,
   }
   ]
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  downQuantity(component:component):void{
+    if (component.quantity>0){
+     component.quantity--;
+    }
+  }
+  upQuantity(component:component):void{
+    if (component.quantity<component.stock){
+      component.quantity++;
+    }
+  }
+  onChangequantity(event, component:component){
+    event.preventDefault();
+    console.log(event);
+    if(event.target.value>component.stock){
+     event.target.value=component.stock;
+     component.quantity=component.stock
+    }else if(event.target.value<0){
+      component.quantity=0;
+    }
+  }
 }

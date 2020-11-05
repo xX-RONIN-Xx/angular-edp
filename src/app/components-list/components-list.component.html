@@ -6,16 +6,25 @@
             <th>Tipo</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let component of component" [ngClass]="{'clearance':component.clearance}">
-            <td><img [src]="component.image" [alt]="component.name"/></td>
+            <td><img width="90" class="img-thumbnail" [src]="component.image" [alt]="component.name"></td>
             <td>{{component.name}}</td>
             <td>{{component.type}}</td>
             <td>{{component.price |currency}}</td>
-            <td><span class="badge badge-danger" *ngIf="component.stock==0">Sin Stock</span></td>
+            <td><span class="badge badge-danger" *ngIf="component.stock==0">Sin Stock</span><span *ngIf="component.stock!=0">{{component.stock}}</span></td>
+            <td>
+                <div class="container">
+                    <button class="btn btn-outline-primary btn-sm" (click)="downQuantity(component)">-</button>
+                    <input type="text" [(ngModel)]=" component.quantity" id="quantity"
+                    (keyup)="onChangequantity($event, component)">
+                    <button class="btn btn-outline-primary btn-sm" (click)="upQuantity(component)">+</button>
+                </div>
+            </td>
         </tr>
-       
+
     </tbody>
 </table>
