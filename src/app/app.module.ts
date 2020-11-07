@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { EdpAboutComponent } from './edp-about/edp-about.component';
 import { EdpComponentsComponent } from './edp-components/edp-components.component';
 import { EdpCartComponent } from './edp-cart/edp-cart.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { EdpCartComponent } from './edp-cart/edp-cart.component';
     ComponentsListComponent,
     EdpAboutComponent,
     EdpComponentsComponent,
-    EdpCartComponent
+    EdpCartComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentCartService } from '../component-cart.service';
 import { component } from './component';
 
 @Component({
@@ -72,28 +73,19 @@ export class ComponentsListComponent implements OnInit {
     "quantity":0,
   }
   ]
-  constructor() { }
+
+  constructor(private cart:ComponentCartService) { 
+  }
 
   ngOnInit(): void {
   }
-  downQuantity(component:component):void{
-    if (component.quantity>0){
-     component.quantity--;
-    }
+
+  addToCart(componente):void{
+    this.cart.addToCart(componente);
+    componente.stock -=componente.quantity;
+    componente.quantity=0;
   }
-  upQuantity(component:component):void{
-    if (component.quantity<component.stock){
-      component.quantity++;
-    }
-  }
-  onChangequantity(event, component:component){
-    event.preventDefault();
-    console.log(event);
-    if(event.target.value>component.stock){
-     event.target.value=component.stock;
-     component.quantity=component.stock
-    }else if(event.target.value<0){
-      component.quantity=0;
-    }
-  }
+ maxReached(m:string){
+   alert(m);
+ }
 }
