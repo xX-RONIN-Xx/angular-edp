@@ -12,8 +12,6 @@ export class EdpCartComponent implements OnInit {
     cartList$:Observable <component[]>; 
     constructor(private cart:ComponentCartService) {
       this.cartList$= cart.CartList.asObservable();
-     // cart.CartList.subscribe(c=>this.cartList=c);
-      //cart.CartList.subscribe((observable)=>this.cartList=observable);
    }
 
   ngOnInit(): void {

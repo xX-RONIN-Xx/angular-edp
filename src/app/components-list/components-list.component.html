@@ -18,7 +18,7 @@
             <td><span class="badge badge-danger" *ngIf="component.stock==0">Sin Stock</span><span *ngIf="component.stock!=0">{{component.stock}}</span></td>
             <td>
                <app-input-integer [(quantity)]="component.quantity" [max]="component.stock" *ngIf="component.stock" (maxReached)="maxReached($event)"></app-input-integer>
-               <button class="btn btn-primary" (click)="addToCart(component)">Comprar</button>
+               <span class="space" *ngIf="component.stock!==0"><button class="badge badge-warning" (click)="addToCart(component)">Comprar</button></span>
             </td>
         </tr>
 

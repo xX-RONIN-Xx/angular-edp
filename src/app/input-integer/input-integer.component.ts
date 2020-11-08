@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { component } from '../components-list/component';
 @Component({
   selector: 'app-input-integer',
   templateUrl: './input-integer.component.html',
@@ -39,7 +38,7 @@ export class InputIntegerComponent implements OnInit {
     else
     this.maxReached.emit("Se alcanzó el máximo");
   }
-  onChangequantity(event){
+  onChangequantity(event):void{
     event.preventDefault();
     console.log(event);
     if(event.target.value>this.max){
@@ -48,7 +47,6 @@ export class InputIntegerComponent implements OnInit {
      this.quantityChange.emit(this.quantity);
     }else if(event.target.value<0){
       this.quantity=0;
-      this.quantityChange.emit(this.quantity);
     }
   }
 }
