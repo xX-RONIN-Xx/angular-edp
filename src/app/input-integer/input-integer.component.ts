@@ -10,43 +10,43 @@ export class InputIntegerComponent implements OnInit {
   @Input()
   max: number;
 
-@Input()
+  @Input()
   quantity: number;
   ngOnInit(): void {
   }
 
   @Output()
-  quantityChange:EventEmitter<number>=new EventEmitter<number>();
+  quantityChange: EventEmitter<number> = new EventEmitter<number>();
 
-  
+
   @Output()
-  maxReached:EventEmitter<string>=new EventEmitter<string>();
+  maxReached: EventEmitter<string> = new EventEmitter<string>();
 
 
-  downQuantity():void{
-    if (this.quantity>0){
-     this.quantity--;
-     this.quantityChange.emit(this.quantity);
+  downQuantity(): void {
+    if (this.quantity > 0) {
+      this.quantity--;
+      this.quantityChange.emit(this.quantity);
     }
   }
 
-  upQuantity():void{
-    if (this.quantity<this.max){
+  upQuantity(): void {
+    if (this.quantity < this.max) {
       this.quantity++;
       this.quantityChange.emit(this.quantity);
     }
     else
-    this.maxReached.emit("Se alcanzó el máximo");
+      this.maxReached.emit("Se alcanzó el máximo");
   }
-  onChangequantity(event):void{
+  onChangequantity(event): void {
     event.preventDefault();
     console.log(event);
-    if(event.target.value>this.max){
-     event.target.value=this.max;
-     this.quantity=this.max;
-     this.quantityChange.emit(this.quantity);
-    }else if(event.target.value<0){
-      this.quantity=0;
+    if (event.target.value > this.max) {
+      event.target.value = this.max;
+      this.quantity = this.max;
+      this.quantityChange.emit(this.quantity);
+    } else if (event.target.value < 0) {
+      this.quantity = 0;
     }
   }
 }

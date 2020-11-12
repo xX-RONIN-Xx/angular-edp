@@ -15,8 +15,8 @@ export class ComponentsListComponent implements OnInit {
     "price": 500,
     "stock": 0,
     "image": "assets/img/2n3055.jpeg",
-    "clearance":false,
-    "quantity":0,
+    "clearance": false,
+    "quantity": 0,
   },
   {
     "name": "Ne555",
@@ -24,8 +24,8 @@ export class ComponentsListComponent implements OnInit {
     "price": 300,
     "stock": 20,
     "image": "assets/img/ne555.jpeg",
-    "clearance":true,
-    "quantity":0,
+    "clearance": true,
+    "quantity": 0,
   },
   {
     "name": "Capacitor",
@@ -33,8 +33,8 @@ export class ComponentsListComponent implements OnInit {
     "price": 100,
     "stock": 50,
     "image": "assets/img/capacitor_25x4700uf.jpeg",
-    "clearance":false,
-    "quantity":0,
+    "clearance": false,
+    "quantity": 0,
   },
   {
     "name": "Resistencia de precisión",
@@ -42,8 +42,8 @@ export class ComponentsListComponent implements OnInit {
     "price": 5,
     "stock": 500,
     "image": "assets/img/RP2.7_3w.jpeg",
-    "clearance":false,
-    "quantity":0,
+    "clearance": false,
+    "quantity": 0,
   },
   {
     "name": "Pic 18f4550",
@@ -51,8 +51,8 @@ export class ComponentsListComponent implements OnInit {
     "price": 800,
     "stock": 0,
     "image": "assets/img/pic18f4550.jpeg",
-    "clearance":false,
-    "quantity":0,
+    "clearance": false,
+    "quantity": 0,
   },
   {
     "name": "Diodo RGB",
@@ -60,8 +60,8 @@ export class ComponentsListComponent implements OnInit {
     "price": 8,
     "stock": 200,
     "image": "assets/img/diodorgb.jpeg",
-    "clearance":false,
-    "quantity":0,
+    "clearance": false,
+    "quantity": 0,
   },
   {
     "name": "Zener 13v",
@@ -69,23 +69,26 @@ export class ComponentsListComponent implements OnInit {
     "price": 80,
     "stock": 45,
     "image": "assets/img/zener13v.jpeg",
-    "clearance":false,
-    "quantity":0,
+    "clearance": false,
+    "quantity": 0,
   }
   ]
 
-  constructor(private cart:ComponentCartService) { 
+  constructor(private cart: ComponentCartService) {
   }
 
   ngOnInit(): void {
   }
 
-  addToCart(componente):void{
+  addToCart(componente): void {
+
     this.cart.addToCart(componente);
-    componente.stock -=componente.quantity;
-    componente.quantity=0;
+    componente.stock -= componente.quantity;
+    componente.quantity = 0;
+
+
   }
- maxReached(m:string){
-   alert(m);
- }
+  maxReached(m: string) {
+    alert(m);
+  }
 }

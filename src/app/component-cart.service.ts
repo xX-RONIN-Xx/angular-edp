@@ -7,23 +7,24 @@ import { component } from './components-list/component';
 })
 
 export class ComponentCartService {
-  private _CartList:component[]=[];
-  CartList: BehaviorSubject<component[]>=new BehaviorSubject([]);
+  private _CartList: component[] = [];
+  CartList: BehaviorSubject<component[]> = new BehaviorSubject([]);
 
-  
+
   constructor() { }
 
   addToCart(componente: component) {
-
-    let item: component= this._CartList.find((v1)=>v1.name==componente.name);
-    if (!item){
-      this._CartList.push({... componente});
-    } else{
-      item.quantity+=componente.quantity;
+    if (componente.quantity!=0){
+    let item: component = this._CartList.find((v1) => v1.name == componente.name);
+    if (!item) {
+      this._CartList.push({ ...componente });
+    } else {
+      item.quantity += componente.quantity;
     }
-    
-    console.log(this._CartList); 
+
+    console.log(this._CartList);
     this.CartList.next(this._CartList)
   }
+}
 
 }

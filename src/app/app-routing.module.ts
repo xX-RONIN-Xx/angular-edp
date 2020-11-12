@@ -5,17 +5,17 @@ import { EdpComponentsComponent } from './edp-components/edp-components.componen
 
 const routes: Routes = [
   {
-    path:'',
-    redirectTo:'components',
+    path: '',
+    redirectTo: 'components',
     pathMatch: 'full'
-  }, 
-  {
-    path:'components',
-    component:EdpComponentsComponent
   },
   {
-    path:'about',
-    component:EdpAboutComponent
+    path: 'components',
+    component: EdpComponentsComponent
+  },
+  {
+    path: 'about',
+    component: EdpAboutComponent
   }
 ];
 

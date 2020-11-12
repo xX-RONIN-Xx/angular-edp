@@ -4,6 +4,6 @@ export interface component {
     "price": number,
     "stock": number,
     "image": string,
-    "clearance":boolean,
-    "quantity":number
+    "clearance": boolean,
+    "quantity": number
 }
