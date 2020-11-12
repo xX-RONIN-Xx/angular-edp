@@ -41,6 +41,7 @@ export class InputIntegerComponent implements OnInit {
   onChangequantity(event): void {
     event.preventDefault();
     console.log(event);
+    this.quantityChange.emit(this.quantity);
     if (event.target.value > this.max) {
       event.target.value = this.max;
       this.quantity = this.max;
