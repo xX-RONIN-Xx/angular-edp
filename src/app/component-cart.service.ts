@@ -14,7 +14,7 @@ export class ComponentCartService {
   constructor() { }
 
   addToCart(componente: component) {
-    //if (componente.quantity!=0){
+    if (componente.quantity!=0){
     let item: component = this._CartList.find((v1) => v1.name == componente.name);
     if (!item) {
       this._CartList.push({ ...componente });
@@ -24,7 +24,7 @@ export class ComponentCartService {
 
     console.log(this._CartList);
     this.CartList.next(this._CartList)
-  //}
+  }
 }
 
 }

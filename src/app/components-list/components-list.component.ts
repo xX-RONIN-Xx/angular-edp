@@ -81,12 +81,9 @@ export class ComponentsListComponent implements OnInit {
   }
 
   addToCart(componente): void {
-
     this.cart.addToCart(componente);
     componente.stock -= componente.quantity;
     componente.quantity = 0;
-
-
   }
   maxReached(m: string) {
     alert(m);
